@@ -314,13 +314,15 @@ h1 {
     margin-bottom: 20px;
   }
 
+ 
   .subtitulo-frase {
     font-size: 1.5rem;
-    margin-bottom: 25px;
+    margin-left: 0;
+    text-align: center;
   }
 
   .botoes {
-    gap: 14px;
+    gap: 12px;
     align-items: center;
   }
 
