@@ -49,34 +49,32 @@ body {
 
 /* Área da direita */
 .lado-direito {
-    text-align: center;
-    min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
-/* Título */
+/* Reduzir o espaçamento do título */
 h1 {
-    font-size: 2.8rem;
-    font-weight: 600;
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    margin-bottom: 45px;
-    margin-left: -15%;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
+/* Subtítulo mais leve */
 .subtitulo-frase {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.9rem;
-    color: #e5c15b;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-    margin-bottom: 40px;
-    margin-left: -15%;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
 }
 
-/* Botões */
+/* Botões mais próximos e centralizados */
 .botoes {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 .btn {
@@ -128,20 +126,13 @@ h1 {
 
 /* ÍCONES FIXOS DE CONTATO (WhatsApp e E-mail) */
 .icones-contato {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    z-index: 999;
+  bottom: 10px;
+  right: 10px;
 }
 
 .icone-contato {
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
-    transition: transform .3s ease;
+  width: 40px;
+  height: 40px;
 }
 
 /* WhatsApp - ajuste tamanho */
