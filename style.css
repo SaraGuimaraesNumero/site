@@ -3,7 +3,815 @@
 
 /* Reset */
 * {
+    margin: 0;/* IMPORTAR FONTE CURSIVA */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Fundo */
+body {
+    background-image: url("fundo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Layout geral */
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 50px;
+    padding-right: 120px;
+}
+
+/* Lado esquerdo */
+.lado-esquerdo {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BRASÃO GIGANTE */
+.brasao {
+    height: 100vh;
+    width: auto;
+    max-height: 1200px;
+    object-fit: contain;
+}
+
+/* Área da direita */
+.lado-direito {
+    text-align: center;
+    min-width: 350px;
+}
+
+/* Título */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 45px;
+    margin-left: -15%;
+}
+
+.subtitulo-frase {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.9rem;
+    color: #e5c15b;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    margin-bottom: 40px;
+    margin-left: -15%;
+}
+
+/* Botões */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.btn {
+    background-color: #e0b644;
+    color: white;
+    font-size: 1.6rem;
+    border: none;
+    padding: 16px 10px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    width: 320px;
+}
+
+.btn:hover {
+    transform: scale(1.06);
+}
+
+/* Botão destaque */
+.destaque {
+    background: linear-gradient(90deg, #ff9b63, #ffb27a);
+}
+
+/* Hover do botão Inscrições */
+.destaque:hover {
+    background: linear-gradient(90deg, #ff7b3c, #ff9f57);
+    transform: scale(1.06);
+}
+
+/* Hover do botão O Retiro */
+.btn:not(.destaque):not(.acesso):hover {
+    background-color: #988c42;
+    transform: scale(1.06);
+}
+
+/* Botão Acesso (cor exclusiva + cadeado sutil) */
+.acesso {
+    background-color: #d5a649;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.acesso:hover {
+    background-color: rgb(203, 145, 28);
+    transform: scale(1.03);
+}
+
+/* ÍCONES FIXOS DE CONTATO (WhatsApp e E-mail) */
+.icones-contato {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 999;
+}
+
+.icone-contato {
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+/* WhatsApp - ajuste tamanho */
+.icones-contato img[alt="WhatsApp"] {
+    width: 67px;
+    height: 67px;
+}
+
+/* Email - alinhamento e menor */
+.icones-contato img[alt="E-mail"] {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0px;
+}
+
+.icone-contato:hover {
+    transform: scale(1.15);
+}
+
+
+/* ============================= */
+/*            MODAL              */
+/* ============================= */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Modal usando o MESMO fundo do site */
+.modal-conteudo {
+    width: 80%;
+    height: 80%;
+    background-image: url("fundo.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;    /* <-- VOLTA PARA LADO A LADO */
+    border-radius: 20px;
+    overflow: hidden; /* <-- SEM SCROLL AQUI */
+    box-shadow: 0 0 25px rgba(255, 200, 80, 0.4);
+    animation: surgir .4s ease-out;
+    position: relative;
+}
+
+
+
+/* Botão X – dourado com contorno */
+.btn-fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(255, 248, 225, 0.9);
+    border: 2px solid #c89a32;
+    font-size: 1.4rem;
+    color: #c89a32;
+    cursor: pointer;
+    padding: 4px 11px;
+    border-radius: 999px;
+    transition: 0.25s ease-in-out;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    pointer-events: auto;
+    z-index: 999999; /* 👈 PRIORIDADE MÁXIMA PARA CLICAR */
+}
+
+
+
+/* Hover – alto relevo e brilho */
+.btn-fechar:hover {
+    background: #ffeec0;
+    color: #8f6715;
+    transform: scale(1.15);
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.3),
+        inset 0 2px 4px rgba(255,255,255,0.9);
+}
+
+/* Imagem à esquerda */
+.modal-img {
+    width: 40%;
+    background: rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Texto com rolagem e fundo suave */
+.modal-texto {
+    width: 60%;
+    padding: 45px;
+    overflow-y: auto;  /* <-- SOMENTE AQUI */
+    font-size: 1.35rem;
+    line-height: 2.1rem;
+    text-align: justify;
+    color: #111;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(3px);
+}
+
+
+/* Título cursivo */
+.modal-texto h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #c89a32;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 18px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Barra de rolagem */
+.modal-texto::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal-texto::-webkit-scrollbar-thumb {
+    background: #d5b66a;
+    border-radius: 10px;
+}
+
+.modal-texto::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ANIMAÇÃO */
+@keyframes surgir {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ------------------------ */
+/* RESPONSIVO PARA CELULAR  */
+/* ------------------------ */
+@media (max-width: 820px) {
+    .layout {
+        flex-direction: column;
+        gap: 30px;
+        padding-right: 0;
+    }
+
+    .brasao {
+        height: 180px !important;
+        width: auto !important;
+        max-height: 200px !important;
+    }
+
+    .lado-direito {
+        min-width: 0;
+    }
+
+    .btn {
+        width: 260px;
+    }
+
+    .icones-contato {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .icone-contato {
+        width: 45px;
+        height: 45px;
+    }
+
+    .icones-contato img[alt="WhatsApp"] {
+        width: 55px !important;
+        height: 55px !important;
+    }
+
+    .icones-contato img[alt="E-mail"] {
+        width: 40px !important;
+        height: 40px !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Modal responsivo */
+    .modal-conteudo {
+        flex-direction: column;
+        width: 90%;
+        height: 90%;
+    }
+
+    .modal-texto {
+        width: 100%;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        padding: 28px;
+    }
+
+    .modal-img {
+        width: 100%;
+        height: 40%;
+    }
+}
+/* ============================= */
+/*    MODAL DE INSCRIÇÕES       */
+/* ============================= */
+
+.modal-inscrito {
+    flex-direction: column;
+    padding: 35px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Título e valor */
+.modal-insc-titulo h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #c89a32;
+    font-size: 2.8rem;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.modal-insc-titulo .valor {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #2b1b07;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Botões de meses */
+.meses-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.mes-btn {
+    background-color: #e0b644;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    font-size: 1.1rem;
+    transition: .3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.mes-btn:hover, .mes-btn.active {
+    background-color: #b58b22;
+    transform: scale(1.06);
+}
+
+/* Calendário container */
+.calendario-container {
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(4px);
+    width: 330px;           /* pequeno */
+    padding: 18px;
+    border-radius: 18px;
+    text-align: center;
+    margin: 10px auto;      /* centralizado */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.selecione-aviso {
+    color: #3a2d0b;
+    font-weight: 600;
+}
+
+.data-btn {
+    background-color: #e0b644;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: .25s;
+    font-size: 0.95rem;
+}
+
+
+.data-btn:hover {
+    background-color: #b58b22;
+    transform: scale(1.06);
+}
+
+.data-btn.selected {
+    background-color: #72530f;
+    transform: scale(1.08);
+}
+
+/* Formulário */
+.form-inscricao {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 90%;
+    max-width: 600px;
+    margin-top: 10px;
+}
+
+.form-inscricao input,
+.form-inscricao textarea {
+    padding: 12px;
+    border: 2px solid #c89a32;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-inscricao textarea {
+    min-height: 90px;
+    resize: none;
+}
+
+.enviar-inscricao {
+    background: linear-gradient(90deg, #ff9b63, #ffb27a);
+    font-size: 1.3rem;
+    border-radius: 35px;
+    padding: 12px 0;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.enviar-inscricao:hover {
+    background: linear-gradient(90deg, #ff7b3c, #ff9f57);
+    transform: scale(1.06);
+}
+
+.data-escolhida {
+    font-weight: 800;
+    color: #72530f;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.modal-inscrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* ============================= */
+/*     MODAL DE ACESSO           */
+/* ============================= */
+
+.modal-acesso-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    gap: 18px;
+    text-align: center;
+}
+
+.titulo-acesso {
+    font-family: 'Great Vibes', cursive;
+    color: #c89a32;
+    font-size: 2.6rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.texto-acesso {
+    font-size: 1.2rem;
+    color: #442f06;
+    font-weight: 500;
+}
+
+.input-senha {
+    padding: 14px;
+    border: 2px solid #c89a32;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    width: 260px;
+    outline: none;
+    text-align: center;
+}
+
+.erro-senha {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #b30000;
+}
+
+.btn-acesso-confirmar {
+    width: 240px;
+    background-color: #d79f23;
+}
+
+.btn-acesso-confirmar:hover {
+    background-color: #b58717;
+}
+
+/* ============================= */
+/*    ESTILO DO ACESSO PRIVADO   */
+/* ============================= */
+
+.modal-logado {
+    flex-direction: column;
+    padding: 35px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo-privado {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #c89a32;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.menu-acesso {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-privado {
+    background-color: #e0b644;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    font-size: 1.1rem;
+    transition: .3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.btn-privado:hover {
+    background-color: #b58b22;
+    transform: scale(1.06);
+}
+
+.conteudo-privado {
+    width: 90%;
+    max-width: 700px;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(3px);
+    margin-top: 15px;
+    padding: 20px 25px;
+    border-radius: 14px;
+    overflow-y: auto;
+    max-height: 55vh;
+}
+
+.privado-aviso {
+    text-align: center;
+    font-weight: 600;
+}
+
+.box-orientacoes h4 {
+    margin-top: 12px;
+    font-weight: 700;
+    color: #614a11;
+}
+
+.box-orientacoes p, .box-orientacoes li {
+    color: #3a2d0b;
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+.lista-mimos p {
+    margin-left: 12px;
+}
+
+.frase-final {
+    text-align: center;
+    margin-top: 12px;
+    font-weight: 700;
+    color: #72530f;
+    font-size: 1.1rem;
+}
+
+/* ============================= */
+/*       FICHA PESSOAL           */
+/* ============================= */
+
+#modal-ficha-pessoal .modal-logado {
+    flex-direction: column;
+    padding: 25px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+#modal-ficha-pessoal h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #c89a32;
+    font-size: 2.7rem;
+    margin-bottom: 5px;
+}
+
+#modal-ficha-pessoal h3 {
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: #4b3a15;
+    font-weight: 700;
+}
+
+#modal-ficha-pessoal .form-inscricao {
+    padding-bottom: 30px;
+}
+
+#modal-ficha-pessoal input,
+#modal-ficha-pessoal select,
+#modal-ficha-pessoal textarea {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+#modal-ficha-pessoal select {
+    cursor: pointer;
+}
+
+/* ===== Scroll apenas para o modal de Inscrições ===== */
+#modal-inscricoes .modal-conteudo {
+    height: 87vh;        /* altura fixa somente neste modal */
+    overflow-y: auto;    /* ativa rolagem somente aqui */
+    overflow-x: hidden;
+}
+
+/* Conteúdo interno com rolagem suave */
+#modal-inscricoes .modal-inscrito {
+    padding-bottom: 35px;
+    overflow-y: auto;
+}
+
+/* Responsividade */
+@media (max-width: 820px) {
+    #modal-inscricoes .modal-conteudo {
+        height: 90vh !important;
+    }
+}
+
+/* ===== ANIMAÇÃO DE ENTRADA SUAVE DA ÁREA PRIVADA ===== */
+.modal-area-animada {
+    animation: surgirPrivate .5s ease-out;
+}
+
+@keyframes surgirPrivate {
+    from {
+        opacity: 0;
+        transform: scale(.92);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+
+/* ============================= */
+/* RESPONSIVO CORRIGIDO PARA CELULAR */
+/* ============================= */
+@media (max-width: 820px) {
+
+    body {
+        display: block; /* impede centralização forçada */
+        min-height: auto;
+        padding-top: 20px;
+    }
+
+    .layout {
+        flex-direction: column;
+        gap: 10px;
+        padding-right: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .lado-direito {
+        min-width: 0;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* BRASÃO menor */
+    .brasao {
+        height: 140px !important;
+        width: auto !important;
+        max-height: 140px !important;
+        margin-bottom: 5px;
+    }
+
+    /* Ajuste do Título e Subtítulo */
+    h1, .subtitulo-frase {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 9vw;
+    }
+
+    .subtitulo-frase {
+        font-size: 6.5vw;
+    }
+
+    /* Botões mais responsivos */
+    .btn {
+        width: 85vw;
+        max-width: 330px;
+        font-size: 5vw;
+        padding: 14px 0;
+        border-radius: 35px;
+    }
+
+    /* Ícones fixos */
+    .icones-contato {
+        bottom: 10px;
+        right: 10px;
+        gap: 5px;
+    }
+
+    .icone-contato {
+        width: 48px;
+        height: 48px;
+    }
+
+    /* Ajuste Modal */
+    .modal-conteudo {
+        flex-direction: column;
+        width: 93%;
+        height: 92%;
+        border-radius: 18px;
+    }
+
+    .modal-texto {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 20px;
+        line-height: 1.5rem;
+    }
+
+    .modal-img {
+        width: 100%;
+        height: 38%;
+    }
+}
+
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
