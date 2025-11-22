@@ -815,7 +815,7 @@ h1 {
         display: flex;
         justify-content: center;
         gap: 25px;
-        margin-top: 60px;              /* Espaço depois do Ori */
+        margin-top: 200px;              /* Espaço depois do Ori */
         padding-bottom: 15px;
     }
 
@@ -827,7 +827,7 @@ h1 {
 
 @media (max-width: 768px) {
     .brasao {
-        transform: translateX(-10px); /* 👈 move um pouco para a esquerda */
+        transform: translateX(-50px); /* 👈 move um pouco para a esquerda */
     }
 }
 
