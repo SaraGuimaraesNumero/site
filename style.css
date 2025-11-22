@@ -824,3 +824,10 @@ h1 {
         height: 55px !important;
     }
 }
+
+@media (max-width: 768px) {
+    .brasao {
+        transform: translateX(-10px); /* 👈 move um pouco para a esquerda */
+    }
+}
+
