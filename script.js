@@ -100,7 +100,7 @@ document.getElementById("form-inscricao").addEventListener("submit", function(e)
         motivo: document.getElementById("motivo").value
     };
 
-    emailjs.send("service_amqsdiv", "template_rv74ysl", dadosInsc)
+    emailjs.send("service_amqsdiv", "template_hv3vkec", dadosInsc)
     .then(() => {
         alert("📨 Inscrição enviada com sucesso!");
         fecharModalInscricao();
